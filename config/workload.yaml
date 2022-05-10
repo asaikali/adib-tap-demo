@@ -1,0 +1,17 @@
+apiVersion: carto.run/v1alpha1
+kind: Workload
+metadata:
+  name: adib-tap-demo
+  labels:
+    apps.tanzu.vmware.com/workload-type: web
+    app.kubernetes.io/part-of: adib-tap-demo
+spec:
+  params:
+  - name: annotations
+    value:
+      autoscaling.knative.dev/minScale: "1"
+  source:
+    git:
+      url: https://github.com/sample-accelerators/adib-tap-demo
+      ref:
+        branch: main
